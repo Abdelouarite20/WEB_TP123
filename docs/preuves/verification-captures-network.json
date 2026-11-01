@@ -1,0 +1,256 @@
+{
+  "date": "2026-11-01T20:36:22.647Z",
+  "mode": "Navigateur Chrome et API Express/MongoDB réels",
+  "account": {
+    "email": "demo@example.com",
+    "credentialsStored": false,
+    "existingAccount": true
+  },
+  "checks": [
+    {
+      "name": "Import et suppression complémentaires réels",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/auth/login",
+      "resourceType": "XHR",
+      "authorizationPresent": false,
+      "contentType": "application/json",
+      "body": {
+        "email": "demo@example.com",
+        "password": "[masqué]"
+      },
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 596,
+      "response": {
+        "token": "[masqué]",
+        "user": {
+          "id": "6ab52288164cc9530f3982ce",
+          "name": "Demo",
+          "email": "demo@example.com",
+          "createdAt": "2026-09-24T13:15:52.658Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 544,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ab52288164cc9530f3982ce",
+            "title": "Test1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-09-24T13:22:20.384Z",
+            "updatedAt": "2026-09-24T13:22:20.384Z",
+            "__v": 0,
+            "id": "6ab5240c164cc9530f3982cf"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 1,
+        "pages": 1
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/users/me",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 367,
+      "response": {
+        "id": "6ab52288164cc9530f3982ce",
+        "name": "Demo",
+        "email": "demo@example.com",
+        "createdAt": "2026-09-24T13:15:52.658Z"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 197,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ab52288164cc9530f3982ce",
+            "title": "Test1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-09-24T13:22:20.384Z",
+            "updatedAt": "2026-09-24T13:22:20.384Z",
+            "__v": 0,
+            "id": "6ab5240c164cc9530f3982cf"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 1,
+        "pages": 1
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=2&limit=5",
+      "resourceType": "Fetch",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 304,
+      "response": {
+        "items": [],
+        "page": 2,
+        "limit": 5,
+        "total": 1,
+        "pages": 1
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/tracks",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "contentType": "multipart/form-data; boundary=----WebKitFormBoundarytpIoVd1pRTDx9Y0t",
+      "body": {
+        "format": "multipart/form-data",
+        "fields": [],
+        "detail": "Champs vérifiés aussi par instrumentation XHR/FormData"
+      },
+      "status": 201,
+      "responseType": "application/json",
+      "transferredBytes": 497,
+      "response": {
+        "id": "6ae7a2ce58897008af9e889e",
+        "ownerId": "6ab52288164cc9530f3982ce",
+        "title": "VerificationTP 1793565382647 capture complémentaire",
+        "originalName": "song1.mp3",
+        "mimeType": "audio/mpeg",
+        "size": 3605337,
+        "createdAt": "2026-11-01T20:36:30.902Z"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 830,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ab52288164cc9530f3982ce",
+            "title": "VerificationTP 1793565382647 capture complémentaire",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:36:30.902Z",
+            "updatedAt": "2026-11-01T20:36:30.902Z",
+            "__v": 0,
+            "id": "6ae7a2ce58897008af9e889e"
+          },
+          {
+            "ownerId": "6ab52288164cc9530f3982ce",
+            "title": "Test1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-09-24T13:22:20.384Z",
+            "updatedAt": "2026-09-24T13:22:20.384Z",
+            "__v": 0,
+            "id": "6ab5240c164cc9530f3982cf"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 2,
+        "pages": 1
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a2ce58897008af9e889e",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 204,
+      "responseType": "text/plain",
+      "transferredBytes": 152
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 544,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ab52288164cc9530f3982ce",
+            "title": "Test1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-09-24T13:22:20.384Z",
+            "updatedAt": "2026-09-24T13:22:20.384Z",
+            "__v": 0,
+            "id": "6ab5240c164cc9530f3982cf"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 1,
+        "pages": 1
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "network-auth-profil.png",
+      "kind": "Véritable panneau Chrome DevTools Network"
+    },
+    {
+      "file": "network-pagination-upload.png",
+      "kind": "Véritable panneau Chrome DevTools Network"
+    },
+    {
+      "file": "network-suppression.png",
+      "kind": "Véritable panneau Chrome DevTools Network"
+    }
+  ],
+  "uploadProgress": [],
+  "consoleErrors": [],
+  "cleanup": [
+    {
+      "trackId": "6ae7a2ce58897008af9e889e",
+      "status": 404,
+      "cleaned": true
+    }
+  ],
+  "devtoolsPresentation": [
+    "undocked",
+    "drawer fermé",
+    "filtre URL /api/",
+    "Fetch/XHR"
+  ]
+}

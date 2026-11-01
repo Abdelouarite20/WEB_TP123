@@ -1,0 +1,22 @@
+:host { display: block; }
+.grid { align-items: start; }
+.library { min-width: 0; }
+.library-heading { margin-bottom: 1rem; }
+.library-heading h2 { margin: 0; }
+.track-list { display: grid; gap: 1rem; padding: 0; margin: 0; list-style: none; }
+.track-card h3 { margin: 0 0 0.5rem; overflow-wrap: anywhere; }
+.track-card p { margin: 0.4rem 0; }
+.original-name { overflow-wrap: anywhere; }
+.track-actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1rem; }
+.hint, .page-label { color: #455d55; font-size: 0.9rem; }
+.danger { background: #963632; }
+.success { color: #17583e; }
+.upload-progress { margin-top: 1rem; }
+.upload-progress progress { width: 100%; }
+.player { margin-top: 1rem; }
+mat-paginator { margin-top: 1rem; border-radius: 12px; }
+.page-label { text-align: center; }
+@media (max-width: 720px) {
+  .upload-card { margin-bottom: 1rem; }
+  .track-actions button { flex: 1; }
+}

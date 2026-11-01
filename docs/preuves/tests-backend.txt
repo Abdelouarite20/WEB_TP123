@@ -1,0 +1,17 @@
+
+> gpc-api@3.0.0 test
+> node --test
+
+[startup] Dossier des uploads prêt : C:\Users\abdel\Desktop\AngularM1_Miage_2026_2027_TP123\backend\data\uploads
+[health] Vérification de l'API
+[http] GET /api/health -> 200 (11 ms)
+✔ health sans dépendre de MongoDB (105.9963ms)
+✔ schémas Mongoose et relation (9.6435ms)
+ℹ tests 2
+ℹ suites 0
+ℹ pass 2
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 3595.876

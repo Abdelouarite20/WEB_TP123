@@ -1,0 +1,2123 @@
+{
+  "date": "2026-11-01T20:32:22.760Z",
+  "mode": "Navigateur Chrome et API Express/MongoDB réels",
+  "account": {
+    "email": "verification.tp.1793565142760@example.test",
+    "credentialsStored": false
+  },
+  "checks": [
+    {
+      "name": "Inscription réelle suivie du GET profil",
+      "passed": true
+    },
+    {
+      "name": "PUT profil et mise à jour visible",
+      "passed": true
+    },
+    {
+      "name": "Déconnexion nettoie le stockage local",
+      "passed": true
+    },
+    {
+      "name": "Connexion refusée avec message utilisateur",
+      "passed": true
+    },
+    {
+      "name": "Connexion réussie vers bibliothèque",
+      "passed": true
+    },
+    {
+      "name": "Progression intermédiaire réellement affichée",
+      "passed": true
+    },
+    {
+      "name": "Six imports réels avec champs multipart audio/title",
+      "passed": true,
+      "detail": {
+        "tracksCreated": 6
+      }
+    },
+    {
+      "name": "Pagination serveur page 2",
+      "passed": true
+    },
+    {
+      "name": "Téléchargement audio authentifié HTTP 200 audio/mpeg",
+      "passed": true
+    },
+    {
+      "name": "Décodage et lecture du MP3 dans Chrome headless",
+      "passed": true,
+      "detail": {
+        "readyState": 4,
+        "networkState": 1,
+        "duration": 180,
+        "mediaError": null,
+        "playError": null,
+        "currentTime": 0,
+        "visibility": "visible",
+        "paused": false,
+        "srcProtocol": "blob"
+      }
+    },
+    {
+      "name": "Affichage mobile sans débordement horizontal",
+      "passed": true
+    },
+    {
+      "name": "Une piste ne peut pas être lue par un autre utilisateur",
+      "passed": true,
+      "detail": {
+        "status": 404
+      }
+    },
+    {
+      "name": "Backend refuse un upload sans fichier avec 400",
+      "passed": true,
+      "detail": {
+        "status": 400,
+        "body": {
+          "message": "Fichier audio requis"
+        }
+      }
+    },
+    {
+      "name": "Backend refuse un type MIME invalide avec 400",
+      "passed": true,
+      "detail": {
+        "status": 400,
+        "body": {
+          "message": "Format audio non accepté"
+        }
+      }
+    },
+    {
+      "name": "Suppression préalable simulant un autre onglet",
+      "passed": true
+    },
+    {
+      "name": "Suppression gère un 404 avec SnackBar",
+      "passed": true
+    },
+    {
+      "name": "Pistes de vérification supprimées et bibliothèque vide",
+      "passed": true
+    },
+    {
+      "name": "401 invalide nettoie la session et redirige vers login",
+      "passed": true
+    },
+    {
+      "name": "Connexion réussie et refusée observées dans Network",
+      "passed": true
+    }
+  ],
+  "requests": [
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/auth/register",
+      "resourceType": "XHR",
+      "authorizationPresent": false,
+      "contentType": "application/json",
+      "body": {
+        "name": "Vérification TP",
+        "email": "verification.tp.1793565142760@example.test",
+        "password": "[masqué]"
+      },
+      "status": 201,
+      "responseType": "application/json",
+      "transferredBytes": 674,
+      "response": {
+        "token": "[masqué]",
+        "user": {
+          "id": "6ae7a1db58897008af9e8897",
+          "name": "Vérification TP",
+          "email": "verification.tp.1793565142760@example.test",
+          "createdAt": "2026-11-01T20:32:27.756Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/users/me",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 405,
+      "response": {
+        "id": "6ae7a1db58897008af9e8897",
+        "name": "Vérification TP",
+        "email": "verification.tp.1793565142760@example.test",
+        "createdAt": "2026-11-01T20:32:27.756Z"
+      }
+    },
+    {
+      "method": "PUT",
+      "url": "http://127.0.0.1:4200/api/users/me",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "contentType": "application/json",
+      "body": {
+        "name": "Vérification TP mise à jour"
+      },
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 418,
+      "response": {
+        "id": "6ae7a1db58897008af9e8897",
+        "name": "Vérification TP mise à jour",
+        "email": "verification.tp.1793565142760@example.test",
+        "createdAt": "2026-11-01T20:32:27.756Z"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/auth/login",
+      "resourceType": "XHR",
+      "authorizationPresent": false,
+      "contentType": "application/json",
+      "body": {
+        "email": "verification.tp.1793565142760@example.test",
+        "password": "[masqué]"
+      },
+      "status": 401,
+      "responseType": "application/json",
+      "transferredBytes": 300,
+      "response": {
+        "message": "Identifiants incorrects"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/auth/login",
+      "resourceType": "XHR",
+      "authorizationPresent": false,
+      "contentType": "application/json",
+      "body": {
+        "email": "verification.tp.1793565142760@example.test",
+        "password": "[masqué]"
+      },
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 682,
+      "response": {
+        "token": "[masqué]",
+        "user": {
+          "id": "6ae7a1db58897008af9e8897",
+          "name": "Vérification TP mise à jour",
+          "email": "verification.tp.1793565142760@example.test",
+          "createdAt": "2026-11-01T20:32:27.756Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 304,
+      "response": {
+        "items": [],
+        "page": 1,
+        "limit": 5,
+        "total": 0,
+        "pages": 1
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/tracks",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "contentType": "multipart/form-data; boundary=----WebKitFormBoundaryocuAB19hv4KXWVAA",
+      "body": {
+        "format": "multipart/form-data",
+        "fields": [],
+        "detail": "Champs vérifiés aussi par instrumentation XHR/FormData"
+      },
+      "status": 201,
+      "responseType": "application/json",
+      "transferredBytes": 483,
+      "response": {
+        "id": "6ae7a1e758897008af9e8898",
+        "ownerId": "6ae7a1db58897008af9e8897",
+        "title": "VerificationTP 1793565142760 morceau 1",
+        "originalName": "song1.mp3",
+        "mimeType": "audio/mpeg",
+        "size": 3605337,
+        "createdAt": "2026-11-01T20:32:39.807Z"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 577,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:39.807Z",
+            "updatedAt": "2026-11-01T20:32:39.807Z",
+            "__v": 0,
+            "id": "6ae7a1e758897008af9e8898"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 1,
+        "pages": 1
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/tracks",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "contentType": "multipart/form-data; boundary=----WebKitFormBoundaryohsZvAP1XrkGUpRs",
+      "body": {
+        "format": "multipart/form-data",
+        "fields": [],
+        "detail": "Champs vérifiés aussi par instrumentation XHR/FormData"
+      },
+      "status": 201,
+      "responseType": "application/json",
+      "transferredBytes": 483,
+      "response": {
+        "id": "6ae7a1e858897008af9e8899",
+        "ownerId": "6ae7a1db58897008af9e8897",
+        "title": "VerificationTP 1793565142760 morceau 2",
+        "originalName": "song1.mp3",
+        "mimeType": "audio/mpeg",
+        "size": 3605337,
+        "createdAt": "2026-11-01T20:32:40.282Z"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 849,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 2",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.282Z",
+            "updatedAt": "2026-11-01T20:32:40.282Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e8899"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:39.807Z",
+            "updatedAt": "2026-11-01T20:32:39.807Z",
+            "__v": 0,
+            "id": "6ae7a1e758897008af9e8898"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 2,
+        "pages": 1
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/tracks",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "contentType": "multipart/form-data; boundary=----WebKitFormBoundarye4mmOMcC6WHjzAEA",
+      "body": {
+        "format": "multipart/form-data",
+        "fields": [],
+        "detail": "Champs vérifiés aussi par instrumentation XHR/FormData"
+      },
+      "status": 201,
+      "responseType": "application/json",
+      "transferredBytes": 483,
+      "response": {
+        "id": "6ae7a1e858897008af9e889a",
+        "ownerId": "6ae7a1db58897008af9e8897",
+        "title": "VerificationTP 1793565142760 morceau 3",
+        "originalName": "song1.mp3",
+        "mimeType": "audio/mpeg",
+        "size": 3605337,
+        "createdAt": "2026-11-01T20:32:40.784Z"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 1121,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 3",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.784Z",
+            "updatedAt": "2026-11-01T20:32:40.784Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e889a"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 2",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.282Z",
+            "updatedAt": "2026-11-01T20:32:40.282Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e8899"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:39.807Z",
+            "updatedAt": "2026-11-01T20:32:39.807Z",
+            "__v": 0,
+            "id": "6ae7a1e758897008af9e8898"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 3,
+        "pages": 1
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/tracks",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "contentType": "multipart/form-data; boundary=----WebKitFormBoundaryB1H4lrA0gTdp5yJY",
+      "body": {
+        "format": "multipart/form-data",
+        "fields": [],
+        "detail": "Champs vérifiés aussi par instrumentation XHR/FormData"
+      },
+      "status": 201,
+      "responseType": "application/json",
+      "transferredBytes": 483,
+      "response": {
+        "id": "6ae7a1e958897008af9e889b",
+        "ownerId": "6ae7a1db58897008af9e8897",
+        "title": "VerificationTP 1793565142760 morceau 4",
+        "originalName": "song1.mp3",
+        "mimeType": "audio/mpeg",
+        "size": 3605337,
+        "createdAt": "2026-11-01T20:32:41.258Z"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 1394,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 4",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:41.258Z",
+            "updatedAt": "2026-11-01T20:32:41.258Z",
+            "__v": 0,
+            "id": "6ae7a1e958897008af9e889b"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 3",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.784Z",
+            "updatedAt": "2026-11-01T20:32:40.784Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e889a"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 2",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.282Z",
+            "updatedAt": "2026-11-01T20:32:40.282Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e8899"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:39.807Z",
+            "updatedAt": "2026-11-01T20:32:39.807Z",
+            "__v": 0,
+            "id": "6ae7a1e758897008af9e8898"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 4,
+        "pages": 1
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/tracks",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "contentType": "multipart/form-data; boundary=----WebKitFormBoundaryKHr8DGaInNDJAGGd",
+      "body": {
+        "format": "multipart/form-data",
+        "fields": [],
+        "detail": "Champs vérifiés aussi par instrumentation XHR/FormData"
+      },
+      "status": 201,
+      "responseType": "application/json",
+      "transferredBytes": 483,
+      "response": {
+        "id": "6ae7a1e958897008af9e889c",
+        "ownerId": "6ae7a1db58897008af9e8897",
+        "title": "VerificationTP 1793565142760 morceau 5",
+        "originalName": "song1.mp3",
+        "mimeType": "audio/mpeg",
+        "size": 3605337,
+        "createdAt": "2026-11-01T20:32:41.722Z"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 1666,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 5",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:41.722Z",
+            "updatedAt": "2026-11-01T20:32:41.722Z",
+            "__v": 0,
+            "id": "6ae7a1e958897008af9e889c"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 4",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:41.258Z",
+            "updatedAt": "2026-11-01T20:32:41.258Z",
+            "__v": 0,
+            "id": "6ae7a1e958897008af9e889b"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 3",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.784Z",
+            "updatedAt": "2026-11-01T20:32:40.784Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e889a"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 2",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.282Z",
+            "updatedAt": "2026-11-01T20:32:40.282Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e8899"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:39.807Z",
+            "updatedAt": "2026-11-01T20:32:39.807Z",
+            "__v": 0,
+            "id": "6ae7a1e758897008af9e8898"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 5,
+        "pages": 1
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/tracks",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "contentType": "multipart/form-data; boundary=----WebKitFormBoundaryZv3EvujAg4xoUIIA",
+      "body": {
+        "format": "multipart/form-data",
+        "fields": [],
+        "detail": "Champs vérifiés aussi par instrumentation XHR/FormData"
+      },
+      "status": 201,
+      "responseType": "application/json",
+      "transferredBytes": 483,
+      "response": {
+        "id": "6ae7a1ea58897008af9e889d",
+        "ownerId": "6ae7a1db58897008af9e8897",
+        "title": "VerificationTP 1793565142760 morceau 6",
+        "originalName": "song1.mp3",
+        "mimeType": "audio/mpeg",
+        "size": 3605337,
+        "createdAt": "2026-11-01T20:32:42.305Z"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 1666,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 6",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:42.305Z",
+            "updatedAt": "2026-11-01T20:32:42.305Z",
+            "__v": 0,
+            "id": "6ae7a1ea58897008af9e889d"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 5",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:41.722Z",
+            "updatedAt": "2026-11-01T20:32:41.722Z",
+            "__v": 0,
+            "id": "6ae7a1e958897008af9e889c"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 4",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:41.258Z",
+            "updatedAt": "2026-11-01T20:32:41.258Z",
+            "__v": 0,
+            "id": "6ae7a1e958897008af9e889b"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 3",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.784Z",
+            "updatedAt": "2026-11-01T20:32:40.784Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e889a"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 2",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.282Z",
+            "updatedAt": "2026-11-01T20:32:40.282Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e8899"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 6,
+        "pages": 2
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=2&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 577,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:39.807Z",
+            "updatedAt": "2026-11-01T20:32:39.807Z",
+            "__v": 0,
+            "id": "6ae7a1e758897008af9e8898"
+          }
+        ],
+        "page": 2,
+        "limit": 5,
+        "total": 6,
+        "pages": 2
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 197,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 6",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:42.305Z",
+            "updatedAt": "2026-11-01T20:32:42.305Z",
+            "__v": 0,
+            "id": "6ae7a1ea58897008af9e889d"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 5",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:41.722Z",
+            "updatedAt": "2026-11-01T20:32:41.722Z",
+            "__v": 0,
+            "id": "6ae7a1e958897008af9e889c"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 4",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:41.258Z",
+            "updatedAt": "2026-11-01T20:32:41.258Z",
+            "__v": 0,
+            "id": "6ae7a1e958897008af9e889b"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 3",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.784Z",
+            "updatedAt": "2026-11-01T20:32:40.784Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e889a"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 2",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.282Z",
+            "updatedAt": "2026-11-01T20:32:40.282Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e8899"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 6,
+        "pages": 2
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a1ea58897008af9e889d/audio",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "audio/mpeg",
+      "transferredBytes": 3605664
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/auth/login",
+      "resourceType": "Fetch",
+      "authorizationPresent": false,
+      "contentType": "application/json",
+      "body": {
+        "email": "demo@example.com",
+        "password": "[masqué]"
+      },
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 596,
+      "response": {
+        "token": "[masqué]",
+        "user": {
+          "id": "6ab52288164cc9530f3982ce",
+          "name": "Demo",
+          "email": "demo@example.com",
+          "createdAt": "2026-09-24T13:15:52.658Z"
+        }
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a1e758897008af9e8898/audio",
+      "resourceType": "Fetch",
+      "authorizationPresent": true,
+      "status": 404,
+      "responseType": "application/json",
+      "transferredBytes": 288,
+      "response": {
+        "message": "Piste inconnue"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/tracks",
+      "resourceType": "Fetch",
+      "authorizationPresent": true,
+      "contentType": "multipart/form-data; boundary=----WebKitFormBoundary6oZgxejdxYpQY007",
+      "body": {
+        "format": "multipart/form-data",
+        "fields": [],
+        "detail": "Champs vérifiés aussi par instrumentation XHR/FormData"
+      },
+      "status": 400,
+      "responseType": "application/json",
+      "transferredBytes": 296,
+      "response": {
+        "message": "Fichier audio requis"
+      }
+    },
+    {
+      "method": "POST",
+      "url": "http://127.0.0.1:4200/api/tracks",
+      "resourceType": "Fetch",
+      "authorizationPresent": true,
+      "contentType": "multipart/form-data; boundary=----WebKitFormBoundarymEurqIBrOjQ7Fv1U",
+      "body": {
+        "format": "multipart/form-data",
+        "fields": [],
+        "detail": "Champs vérifiés aussi par instrumentation XHR/FormData"
+      },
+      "status": 400,
+      "responseType": "application/json",
+      "transferredBytes": 301,
+      "response": {
+        "message": "Format audio non accepté"
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a1ea58897008af9e889d",
+      "resourceType": "Fetch",
+      "authorizationPresent": true,
+      "status": 204,
+      "responseType": ""
+    },
+    {
+      "method": "DELETE",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a1ea58897008af9e889d",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 404,
+      "responseType": "application/json",
+      "transferredBytes": 288,
+      "response": {
+        "message": "Piste inconnue"
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 1666,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 5",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:41.722Z",
+            "updatedAt": "2026-11-01T20:32:41.722Z",
+            "__v": 0,
+            "id": "6ae7a1e958897008af9e889c"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 4",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:41.258Z",
+            "updatedAt": "2026-11-01T20:32:41.258Z",
+            "__v": 0,
+            "id": "6ae7a1e958897008af9e889b"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 3",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.784Z",
+            "updatedAt": "2026-11-01T20:32:40.784Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e889a"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 2",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.282Z",
+            "updatedAt": "2026-11-01T20:32:40.282Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e8899"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:39.807Z",
+            "updatedAt": "2026-11-01T20:32:39.807Z",
+            "__v": 0,
+            "id": "6ae7a1e758897008af9e8898"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 5,
+        "pages": 1
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a1e958897008af9e889c",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 204,
+      "responseType": "text/plain",
+      "transferredBytes": 152
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 1394,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 4",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:41.258Z",
+            "updatedAt": "2026-11-01T20:32:41.258Z",
+            "__v": 0,
+            "id": "6ae7a1e958897008af9e889b"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 3",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.784Z",
+            "updatedAt": "2026-11-01T20:32:40.784Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e889a"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 2",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.282Z",
+            "updatedAt": "2026-11-01T20:32:40.282Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e8899"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:39.807Z",
+            "updatedAt": "2026-11-01T20:32:39.807Z",
+            "__v": 0,
+            "id": "6ae7a1e758897008af9e8898"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 4,
+        "pages": 1
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a1e958897008af9e889b",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 204,
+      "responseType": "text/plain",
+      "transferredBytes": 152
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 1121,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 3",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.784Z",
+            "updatedAt": "2026-11-01T20:32:40.784Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e889a"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 2",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.282Z",
+            "updatedAt": "2026-11-01T20:32:40.282Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e8899"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:39.807Z",
+            "updatedAt": "2026-11-01T20:32:39.807Z",
+            "__v": 0,
+            "id": "6ae7a1e758897008af9e8898"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 3,
+        "pages": 1
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a1e858897008af9e889a",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 204,
+      "responseType": "text/plain",
+      "transferredBytes": 152
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 849,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 2",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:40.282Z",
+            "updatedAt": "2026-11-01T20:32:40.282Z",
+            "__v": 0,
+            "id": "6ae7a1e858897008af9e8899"
+          },
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:39.807Z",
+            "updatedAt": "2026-11-01T20:32:39.807Z",
+            "__v": 0,
+            "id": "6ae7a1e758897008af9e8898"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 2,
+        "pages": 1
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a1e858897008af9e8899",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 204,
+      "responseType": "text/plain",
+      "transferredBytes": 152
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 577,
+      "response": {
+        "items": [
+          {
+            "ownerId": "6ae7a1db58897008af9e8897",
+            "title": "VerificationTP 1793565142760 morceau 1",
+            "originalName": "song1.mp3",
+            "mimeType": "audio/mpeg",
+            "size": 3605337,
+            "createdAt": "2026-11-01T20:32:39.807Z",
+            "updatedAt": "2026-11-01T20:32:39.807Z",
+            "__v": 0,
+            "id": "6ae7a1e758897008af9e8898"
+          }
+        ],
+        "page": 1,
+        "limit": 5,
+        "total": 1,
+        "pages": 1
+      }
+    },
+    {
+      "method": "DELETE",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a1e758897008af9e8898",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 204,
+      "responseType": "text/plain",
+      "transferredBytes": 152
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/tracks?page=1&limit=5",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 200,
+      "responseType": "application/json",
+      "transferredBytes": 304,
+      "response": {
+        "items": [],
+        "page": 1,
+        "limit": 5,
+        "total": 0,
+        "pages": 1
+      }
+    },
+    {
+      "method": "GET",
+      "url": "http://127.0.0.1:4200/api/users/me",
+      "resourceType": "XHR",
+      "authorizationPresent": true,
+      "status": 401,
+      "responseType": "application/json",
+      "transferredBytes": 302,
+      "response": {
+        "message": "Jeton invalide ou expiré"
+      }
+    }
+  ],
+  "screenshots": [
+    {
+      "file": "tp1-inscription.png",
+      "kind": "Application réelle"
+    },
+    {
+      "file": "tp1-profil.png",
+      "kind": "Application réelle"
+    },
+    {
+      "file": "network-auth-profil.png",
+      "kind": "Véritable panneau Chrome DevTools Network"
+    },
+    {
+      "file": "tp1-connexion-refusee.png",
+      "kind": "Application réelle"
+    },
+    {
+      "file": "tp3-progression.png",
+      "kind": "Application réelle"
+    },
+    {
+      "file": "tp2-bibliotheque.png",
+      "kind": "Application réelle"
+    },
+    {
+      "file": "tp2-pagination.png",
+      "kind": "Application réelle"
+    },
+    {
+      "file": "network-pagination-upload.png",
+      "kind": "Véritable panneau Chrome DevTools Network"
+    },
+    {
+      "file": "tp2-lecture.png",
+      "kind": "Application réelle"
+    },
+    {
+      "file": "tp2-mobile.png",
+      "kind": "Application réelle"
+    },
+    {
+      "file": "tp3-piste-disparue.png",
+      "kind": "Application réelle"
+    },
+    {
+      "file": "tp3-suppression.png",
+      "kind": "Application réelle"
+    },
+    {
+      "file": "network-suppression.png",
+      "kind": "Véritable panneau Chrome DevTools Network"
+    },
+    {
+      "file": "tp1-session-invalide.png",
+      "kind": "Application réelle"
+    }
+  ],
+  "uploadProgress": [
+    {
+      "url": "/api/auth/register",
+      "loaded": 131,
+      "total": 131,
+      "percent": 100
+    },
+    {
+      "url": "/api/users/me",
+      "loaded": 40,
+      "total": 40,
+      "percent": 100
+    },
+    {
+      "url": "/api/auth/login",
+      "loaded": 114,
+      "total": 114,
+      "percent": 100
+    },
+    {
+      "url": "/api/auth/login",
+      "loaded": 105,
+      "total": 105,
+      "percent": 100
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 32768,
+      "total": 3605651,
+      "percent": 1
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 81920,
+      "total": 3605651,
+      "percent": 2
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 131072,
+      "total": 3605651,
+      "percent": 4
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 180224,
+      "total": 3605651,
+      "percent": 5
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 229376,
+      "total": 3605651,
+      "percent": 6
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 278528,
+      "total": 3605651,
+      "percent": 8
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 327680,
+      "total": 3605651,
+      "percent": 9
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 376832,
+      "total": 3605651,
+      "percent": 10
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 425984,
+      "total": 3605651,
+      "percent": 12
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 475136,
+      "total": 3605651,
+      "percent": 13
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 524288,
+      "total": 3605651,
+      "percent": 15
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 573440,
+      "total": 3605651,
+      "percent": 16
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 622592,
+      "total": 3605651,
+      "percent": 17
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 671744,
+      "total": 3605651,
+      "percent": 19
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 720896,
+      "total": 3605651,
+      "percent": 20
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 770048,
+      "total": 3605651,
+      "percent": 21
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 802816,
+      "total": 3605651,
+      "percent": 22
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 851968,
+      "total": 3605651,
+      "percent": 24
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 901120,
+      "total": 3605651,
+      "percent": 25
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 950272,
+      "total": 3605651,
+      "percent": 26
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 999424,
+      "total": 3605651,
+      "percent": 28
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1048576,
+      "total": 3605651,
+      "percent": 29
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1097728,
+      "total": 3605651,
+      "percent": 30
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1146880,
+      "total": 3605651,
+      "percent": 32
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1196032,
+      "total": 3605651,
+      "percent": 33
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1245184,
+      "total": 3605651,
+      "percent": 35
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1294336,
+      "total": 3605651,
+      "percent": 36
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1343488,
+      "total": 3605651,
+      "percent": 37
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1392640,
+      "total": 3605651,
+      "percent": 39
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1441792,
+      "total": 3605651,
+      "percent": 40
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1490944,
+      "total": 3605651,
+      "percent": 41
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1540096,
+      "total": 3605651,
+      "percent": 43
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1589248,
+      "total": 3605651,
+      "percent": 44
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1622016,
+      "total": 3605651,
+      "percent": 45
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1687552,
+      "total": 3605651,
+      "percent": 47
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1720320,
+      "total": 3605651,
+      "percent": 48
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1769472,
+      "total": 3605651,
+      "percent": 49
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1802240,
+      "total": 3605651,
+      "percent": 50
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1851392,
+      "total": 3605651,
+      "percent": 51
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1900544,
+      "total": 3605651,
+      "percent": 53
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1966080,
+      "total": 3605651,
+      "percent": 55
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2015232,
+      "total": 3605651,
+      "percent": 56
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2064384,
+      "total": 3605651,
+      "percent": 57
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2097152,
+      "total": 3605651,
+      "percent": 58
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2146304,
+      "total": 3605651,
+      "percent": 60
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2195456,
+      "total": 3605651,
+      "percent": 61
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2244608,
+      "total": 3605651,
+      "percent": 62
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2293760,
+      "total": 3605651,
+      "percent": 64
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2326528,
+      "total": 3605651,
+      "percent": 65
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2375680,
+      "total": 3605651,
+      "percent": 66
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2424832,
+      "total": 3605651,
+      "percent": 67
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2473984,
+      "total": 3605651,
+      "percent": 69
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2523136,
+      "total": 3605651,
+      "percent": 70
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2572288,
+      "total": 3605651,
+      "percent": 71
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2621440,
+      "total": 3605651,
+      "percent": 73
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2654208,
+      "total": 3605651,
+      "percent": 74
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2703360,
+      "total": 3605651,
+      "percent": 75
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2752512,
+      "total": 3605651,
+      "percent": 76
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2801664,
+      "total": 3605651,
+      "percent": 78
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2850816,
+      "total": 3605651,
+      "percent": 79
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2899968,
+      "total": 3605651,
+      "percent": 80
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2949120,
+      "total": 3605651,
+      "percent": 82
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2981888,
+      "total": 3605651,
+      "percent": 83
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3031040,
+      "total": 3605651,
+      "percent": 84
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3080192,
+      "total": 3605651,
+      "percent": 85
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3129344,
+      "total": 3605651,
+      "percent": 87
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3178496,
+      "total": 3605651,
+      "percent": 88
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3227648,
+      "total": 3605651,
+      "percent": 90
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3276800,
+      "total": 3605651,
+      "percent": 91
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3325952,
+      "total": 3605651,
+      "percent": 92
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3375104,
+      "total": 3605651,
+      "percent": 94
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3424256,
+      "total": 3605651,
+      "percent": 95
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3473408,
+      "total": 3605651,
+      "percent": 96
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3506176,
+      "total": 3605651,
+      "percent": 97
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3555328,
+      "total": 3605651,
+      "percent": 99
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3605651,
+      "total": 3605651,
+      "percent": 100
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3605651,
+      "total": 3605651,
+      "percent": 100
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3145728,
+      "total": 3605651,
+      "percent": 87
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3605651,
+      "total": 3605651,
+      "percent": 100
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 1998848,
+      "total": 3605651,
+      "percent": 55
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3605651,
+      "total": 3605651,
+      "percent": 100
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2326528,
+      "total": 3605651,
+      "percent": 65
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3605651,
+      "total": 3605651,
+      "percent": 100
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 2867200,
+      "total": 3605651,
+      "percent": 80
+    },
+    {
+      "url": "/api/tracks",
+      "loaded": 3605651,
+      "total": 3605651,
+      "percent": 100
+    }
+  ],
+  "consoleErrors": [
+    {
+      "type": "network",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://127.0.0.1:4200/api/auth/login",
+      "expectedHttpError": true
+    },
+    {
+      "type": "network",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a1e758897008af9e8898/audio",
+      "expectedHttpError": true
+    },
+    {
+      "type": "network",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+      "url": "http://127.0.0.1:4200/api/tracks",
+      "expectedHttpError": true
+    },
+    {
+      "type": "network",
+      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+      "url": "http://127.0.0.1:4200/api/tracks",
+      "expectedHttpError": true
+    },
+    {
+      "type": "network",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://127.0.0.1:4200/api/tracks/6ae7a1ea58897008af9e889d",
+      "expectedHttpError": true
+    },
+    {
+      "type": "network",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://127.0.0.1:4200/api/users/me",
+      "expectedHttpError": true
+    }
+  ],
+  "cleanup": [
+    {
+      "trackId": "6ae7a1e758897008af9e8898",
+      "status": 404,
+      "cleaned": true
+    },
+    {
+      "trackId": "6ae7a1e858897008af9e8899",
+      "status": 404,
+      "cleaned": true
+    },
+    {
+      "trackId": "6ae7a1e858897008af9e889a",
+      "status": 404,
+      "cleaned": true
+    },
+    {
+      "trackId": "6ae7a1e958897008af9e889b",
+      "status": 404,
+      "cleaned": true
+    },
+    {
+      "trackId": "6ae7a1e958897008af9e889c",
+      "status": 404,
+      "cleaned": true
+    },
+    {
+      "trackId": "6ae7a1ea58897008af9e889d",
+      "status": 404,
+      "cleaned": true
+    }
+  ],
+  "xhrRequests": [
+    {
+      "method": "POST",
+      "url": "/api/auth/register",
+      "authorizationPresent": false
+    },
+    {
+      "method": "GET",
+      "url": "/api/users/me",
+      "authorizationPresent": true
+    },
+    {
+      "method": "PUT",
+      "url": "/api/users/me",
+      "authorizationPresent": true
+    },
+    {
+      "method": "POST",
+      "url": "/api/auth/login",
+      "authorizationPresent": false
+    },
+    {
+      "method": "POST",
+      "url": "/api/auth/login",
+      "authorizationPresent": false
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "POST",
+      "url": "/api/tracks",
+      "authorizationPresent": true,
+      "formData": [
+        {
+          "name": "audio",
+          "fileName": "song1.mp3",
+          "size": 3605337,
+          "type": "audio/mpeg"
+        },
+        {
+          "name": "title",
+          "value": "VerificationTP 1793565142760 morceau 1"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "POST",
+      "url": "/api/tracks",
+      "authorizationPresent": true,
+      "formData": [
+        {
+          "name": "audio",
+          "fileName": "song1.mp3",
+          "size": 3605337,
+          "type": "audio/mpeg"
+        },
+        {
+          "name": "title",
+          "value": "VerificationTP 1793565142760 morceau 2"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "POST",
+      "url": "/api/tracks",
+      "authorizationPresent": true,
+      "formData": [
+        {
+          "name": "audio",
+          "fileName": "song1.mp3",
+          "size": 3605337,
+          "type": "audio/mpeg"
+        },
+        {
+          "name": "title",
+          "value": "VerificationTP 1793565142760 morceau 3"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "POST",
+      "url": "/api/tracks",
+      "authorizationPresent": true,
+      "formData": [
+        {
+          "name": "audio",
+          "fileName": "song1.mp3",
+          "size": 3605337,
+          "type": "audio/mpeg"
+        },
+        {
+          "name": "title",
+          "value": "VerificationTP 1793565142760 morceau 4"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "POST",
+      "url": "/api/tracks",
+      "authorizationPresent": true,
+      "formData": [
+        {
+          "name": "audio",
+          "fileName": "song1.mp3",
+          "size": 3605337,
+          "type": "audio/mpeg"
+        },
+        {
+          "name": "title",
+          "value": "VerificationTP 1793565142760 morceau 5"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "POST",
+      "url": "/api/tracks",
+      "authorizationPresent": true,
+      "formData": [
+        {
+          "name": "audio",
+          "fileName": "song1.mp3",
+          "size": 3605337,
+          "type": "audio/mpeg"
+        },
+        {
+          "name": "title",
+          "value": "VerificationTP 1793565142760 morceau 6"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=2&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks/6ae7a1ea58897008af9e889d/audio",
+      "authorizationPresent": true
+    },
+    {
+      "method": "DELETE",
+      "url": "/api/tracks/6ae7a1ea58897008af9e889d",
+      "authorizationPresent": true
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "DELETE",
+      "url": "/api/tracks/6ae7a1e958897008af9e889c",
+      "authorizationPresent": true
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "DELETE",
+      "url": "/api/tracks/6ae7a1e958897008af9e889b",
+      "authorizationPresent": true
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "DELETE",
+      "url": "/api/tracks/6ae7a1e858897008af9e889a",
+      "authorizationPresent": true
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "DELETE",
+      "url": "/api/tracks/6ae7a1e858897008af9e8899",
+      "authorizationPresent": true
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    },
+    {
+      "method": "DELETE",
+      "url": "/api/tracks/6ae7a1e758897008af9e8898",
+      "authorizationPresent": true
+    },
+    {
+      "method": "GET",
+      "url": "/api/tracks?page=1&limit=5",
+      "authorizationPresent": true
+    }
+  ]
+}

@@ -1,0 +1,48 @@
+{
+    "version": 1,
+    "projects": {
+        "gpc": {
+            "projectType": "application",
+            "root": "",
+            "sourceRoot": "src",
+            "architect": {
+                "build": {
+                    "builder": "@angular/build:application",
+                    "options": {
+                        "browser": "src/main.ts",
+                        "tsConfig": "tsconfig.app.json",
+                        "assets": [
+                            {
+                                "glob": "**/*",
+                                "input": "public"
+                            }
+                        ],
+                        "styles": [
+                            "src/styles.css"
+                        ]
+                    }
+                },
+                "serve": {
+                    "builder": "@angular/build:dev-server",
+                    "configurations": {
+                        "development": {
+                            "buildTarget": "gpc:build"
+                        }
+                    },
+                    "defaultConfiguration": "development"
+                },
+                "test": {
+                    "builder": "@angular/build:unit-test",
+                    "options": {
+                        "buildTarget": "gpc:build",
+                        "tsConfig": "tsconfig.spec.json",
+                        "runner": "vitest"
+                    }
+                }
+            }
+        }
+    },
+    "cli": {
+      "analytics": "5005fdce-405c-4117-a78b-b32cc07c898d"
+    }
+}

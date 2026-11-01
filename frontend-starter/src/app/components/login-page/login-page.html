@@ -1,0 +1,24 @@
+<section class="card">
+  <h1>Connexion</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()" [attr.aria-busy]="loading()">
+    <label for="login-email">Email</label>
+    <input id="login-email" type="email" formControlName="email" autocomplete="username"
+      [readOnly]="loading()" [attr.aria-invalid]="form.controls.email.touched && form.controls.email.invalid"
+      aria-describedby="login-email-error" />
+    <span id="login-email-error" class="error">
+      @if (form.controls.email.touched && form.controls.email.invalid) { Saisissez une adresse email valide. }
+    </span>
+    <label for="login-password">Mot de passe</label>
+    <input id="login-password" type="password" formControlName="password" autocomplete="current-password"
+      [readOnly]="loading()" [attr.aria-invalid]="form.controls.password.touched && form.controls.password.invalid"
+      aria-describedby="login-password-error" />
+    <span id="login-password-error" class="error">
+      @if (form.controls.password.touched && form.controls.password.invalid) { Le mot de passe est requis. }
+    </span>
+    <button type="submit" [disabled]="loading()">{{ loading() ? 'Connexion en cours…' : 'Se connecter' }}</button>
+  </form>
+  @if (error()) {
+    <p class="error" role="alert">{{ error() }}</p>
+  }
+  <p><a routerLink="/register">Créer un compte</a></p>
+</section>

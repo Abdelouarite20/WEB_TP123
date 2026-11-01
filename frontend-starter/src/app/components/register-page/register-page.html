@@ -1,0 +1,28 @@
+<section class="card">
+  <h1>Créer un compte</h1>
+  <form [formGroup]="form" (ngSubmit)="submit()" [attr.aria-busy]="loading()">
+    <label for="register-name">Nom</label>
+    <input id="register-name" formControlName="name" autocomplete="name" [readOnly]="loading()"
+      [attr.aria-invalid]="form.controls.name.touched && form.controls.name.invalid" aria-describedby="register-name-error" />
+    <span id="register-name-error" class="error">
+      @if (form.controls.name.touched && form.controls.name.invalid) { Le nom doit contenir au moins 2 caractères. }
+    </span>
+    <label for="register-email">Email</label>
+    <input id="register-email" type="email" formControlName="email" autocomplete="username" [readOnly]="loading()"
+      [attr.aria-invalid]="form.controls.email.touched && form.controls.email.invalid" aria-describedby="register-email-error" />
+    <span id="register-email-error" class="error">
+      @if (form.controls.email.touched && form.controls.email.invalid) { Saisissez une adresse email valide. }
+    </span>
+    <label for="register-password">Mot de passe</label>
+    <input id="register-password" type="password" formControlName="password" autocomplete="new-password" [readOnly]="loading()"
+      [attr.aria-invalid]="form.controls.password.touched && form.controls.password.invalid" aria-describedby="register-password-error" />
+    <span id="register-password-error" class="error">
+      @if (form.controls.password.touched && form.controls.password.invalid) { Utilisez au moins 8 caractères. }
+    </span>
+    <button type="submit" [disabled]="loading()">{{ loading() ? 'Inscription en cours…' : 'Créer mon compte' }}</button>
+  </form>
+  @if (error()) {
+    <p class="error" role="alert">{{ error() }}</p>
+  }
+  <p><a routerLink="/login">Déjà inscrit ?</a></p>
+</section>

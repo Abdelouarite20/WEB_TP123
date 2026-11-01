@@ -1,0 +1,16 @@
+
+> gpc-angular-starter@1.0.0 build
+> ng build
+
+> Building...
+√ Building...
+Initial chunk files | Names         |  Raw size | Estimated transfer size
+main.js             | main          | 639.15 kB |               142.58 kB
+styles.css          | styles        |   8.30 kB |                 1.62 kB
+
+                    | Initial total | 647.45 kB |               144.21 kB
+
+Application bundle generation complete. [8.712 seconds] - 2026-11-01T20:33:05.392Z
+
+Output location: C:\Users\abdel\Desktop\AngularM1_Miage_2026_2027_TP123\frontend-starter\dist\gpc
+

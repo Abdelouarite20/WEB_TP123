@@ -1,0 +1,5 @@
+:host { display: block; }
+
+nav { align-items: center; flex-wrap: wrap; }
+nav a.active { text-decoration-thickness: 3px; text-underline-offset: 5px; }
+nav button { border: 1px solid currentColor; }

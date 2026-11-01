@@ -1,0 +1,58 @@
+
+> gpc-angular-starter@1.0.0 test
+> ng test --watch=false --reporters=verbose
+
+> Building...
+√ Building...
+Application bundle generation complete. [3.555 seconds] - 2026-11-01T20:24:36.361Z
+
+
+ RUN  v4.1.11 C:/Users/abdel/Desktop/AngularM1_Miage_2026_2027_TP123/frontend-starter
+
+ ✓ |gpc| src/app/shared/services/track.service.spec.ts > TrackService > transmet page et limit au serveur et renvoie la page reçue 58ms
+ ✓ |gpc| src/app/shared/services/track.service.spec.ts > TrackService > envoie uniquement audio et title dans le multipart et observe la progression 62ms
+ ✓ |gpc| src/app/shared/services/track.service.spec.ts > TrackService > récupère un Blob uniquement pour la piste demandée 18ms
+ ✓ |gpc| src/app/shared/services/track.service.spec.ts > TrackService > supprime la piste avec DELETE et accepte la réponse 204 17ms
+ ✓ |gpc| src/app/shared/guards/auth.guard.spec.ts > authGuard > redirige vers /login lorsqu’aucun token n’est présent 119ms
+ ✓ |gpc| src/app/shared/guards/auth.guard.spec.ts > authGuard > autorise la navigation avec un token, que le backend vérifiera ensuite 21ms
+ ✓ |gpc| src/app/shared/services/auth.service.spec.ts > AuthService > envoie POST /api/auth/login et conserve la session reçue 117ms
+ ✓ |gpc| src/app/shared/services/auth.service.spec.ts > AuthService > envoie les champs attendus pour l’inscription 24ms
+ ✓ |gpc| src/app/shared/services/auth.service.spec.ts > AuthService > lit puis modifie le profil avec GET et PUT /api/users/me 18ms
+ ✓ |gpc| src/app/shared/services/auth.service.spec.ts > AuthService > efface le token et l’utilisateur à la déconnexion 12ms
+ ✓ |gpc| src/app/shared/interceptors/auth.interceptor.spec.ts > authInterceptor > ajoute Authorization aux requêtes protégées lorsqu’un token existe 54ms
+ ✓ |gpc| src/app/shared/interceptors/auth.interceptor.spec.ts > authInterceptor > n’ajoute pas de header sans token 9ms
+ ✓ |gpc| src/app/shared/interceptors/auth.interceptor.spec.ts > authInterceptor > ne transmet pas le token aux routes publiques ni aux URL externes 5ms
+ ✓ |gpc| src/app/shared/interceptors/auth.interceptor.spec.ts > authInterceptor > nettoie la session et revient sur /login après un 401 protégé 8ms
+ ✓ |gpc| src/app/shared/interceptors/auth.interceptor.spec.ts > authInterceptor > laisse un refus de connexion être traité par le formulaire 29ms
+ ✓ |gpc| src/app/shared/interceptors/auth.interceptor.spec.ts > authInterceptor > préserve une nouvelle session si une ancienne requête reçoit un 401 14ms
+stdout | src/app/components/profile-page/profile-page.spec.ts > ProfilePageComponent > charge le profil à l’ouverture et préremplit le nom
+[ProfilePage] Profil chargé user-test
+
+stdout | src/app/components/profile-page/profile-page.spec.ts > ProfilePageComponent > refuse un nom vide ou composé d’espaces sans appeler PUT
+[ProfilePage] Profil chargé user-test
+
+stdout | src/app/components/profile-page/profile-page.spec.ts > ProfilePageComponent > met à jour le profil réactif et affiche une confirmation
+[ProfilePage] Profil chargé user-test
+
+ ✓ |gpc| src/app/components/profile-page/profile-page.spec.ts > ProfilePageComponent > charge le profil à l’ouverture et préremplit le nom 267ms
+ ✓ |gpc| src/app/components/profile-page/profile-page.spec.ts > ProfilePageComponent > refuse un nom vide ou composé d’espaces sans appeler PUT 40ms
+ ✓ |gpc| src/app/components/profile-page/profile-page.spec.ts > ProfilePageComponent > annule un chargement en cours à la destruction et préserve la déconnexion 39ms
+ ✓ |gpc| src/app/components/login-page/login-page.spec.ts > LoginPageComponent > bloque un formulaire invalide et affiche les erreurs des champs 231ms
+ ✓ |gpc| src/app/components/login-page/login-page.spec.ts > LoginPageComponent > affiche une erreur après un refus HTTP et débloque le formulaire 47ms
+ ✓ |gpc| src/app/components/profile-page/profile-page.spec.ts > ProfilePageComponent > met à jour le profil réactif et affiche une confirmation 70ms
+ ✓ |gpc| src/app/components/tracks-page/tracks-page.spec.ts > TracksPageComponent > affiche une erreur compréhensible après un échec de chargement 217ms
+ ✓ |gpc| src/app/components/tracks-page/tracks-page.spec.ts > TracksPageComponent > demande une nouvelle page au serveur et refuse de dépasser les bornes 38ms
+ ✓ |gpc| src/app/components/tracks-page/tracks-page.spec.ts > TracksPageComponent > refuse un type MIME invalide, un fichier vide et un fichier trop gros avant tout appel HTTP 66ms
+ ✓ |gpc| src/app/components/tracks-page/tracks-page.spec.ts > TracksPageComponent > affiche la progression, bloque un second envoi et remet le formulaire à zéro 45ms
+ ✓ |gpc| src/app/components/tracks-page/tracks-page.spec.ts > TracksPageComponent > affiche une erreur serveur d’upload et autorise un nouvel essai 42ms
+ ✓ |gpc| src/app/components/tracks-page/tracks-page.spec.ts > TracksPageComponent > ne supprime rien lorsque la confirmation est annulée 32ms
+ ✓ |gpc| src/app/components/tracks-page/tracks-page.spec.ts > TracksPageComponent > supprime après confirmation, bloque les doubles clics et recharge la liste 29ms
+ ✓ |gpc| src/app/components/tracks-page/tracks-page.spec.ts > TracksPageComponent > explique un 404 de suppression et revient à la dernière page existante 20ms
+ ✓ |gpc| src/app/components/tracks-page/tracks-page.spec.ts > TracksPageComponent > affiche une erreur de lecture et termine le chargement si la piste est indisponible 23ms
+ ✓ |gpc| src/app/components/tracks-page/tracks-page.spec.ts > TracksPageComponent > révoque l’ancienne ObjectURL, puis la dernière à la destruction 29ms
+
+ Test Files  7 passed (7)
+      Tests  32 passed (32)
+   Start at  21:24:37
+   Duration  10.27s (transform 1.40s, setup 15.92s, import 4.01s, tests 1.87s, environment 35.31s)
+
